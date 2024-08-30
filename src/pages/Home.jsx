@@ -1,11 +1,12 @@
+import Row  from "react-bootstrap/Row"
 import Doctors from "../components/Doctors"
 
 
 const Home = () => {
   return (
-    <div>
+    <Row>
         <Doctors/>
-    </div>
+    </Row>
   )
 }
 
