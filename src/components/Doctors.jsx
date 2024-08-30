@@ -1,20 +1,25 @@
-
-import Col from 'react-bootstrap/Row';
-import Card from 'react-bootstrap/Card';
+import Col from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
+import { doctorData } from "../helper/data";
 
 const Doctors = () => {
+  console.log(doctorData);
   return (
-    <Col>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>Doctors name</Card.Title>
-          <Card.Text>
-            branch
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
+    <>
+      <h1>TAFAMUS HOSPİTAL</h1>
+      <h2>Our Doctors</h2>
+      <Col xs={10} sm={8} md={6} lg={4} xl={3}>
+        {doctorData.map((doctor) => (
+          <Card key={doctor.id} style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={doctor.img} />
+            <Card.Body>
+              <Card.Title>{doctor.name}</Card.Title>
+              <Card.Text>{doctor.dep}</Card.Text>
+            </Card.Body>
+          </Card>
+        ))}
+      </Col>
+    </>
   );
 };
 
