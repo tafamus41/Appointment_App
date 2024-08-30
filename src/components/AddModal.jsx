@@ -1,31 +1,32 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form"
 
-function StaticExample() {
+function AddModal({show,onHide,doctor}) {
   return (
     <div
       className="modal show"
       style={{ display: "block", position: "initial" }}
     >
-      <Modal.Dialog>
+      <Modal show={show} onHide={onHide} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Reservation for{doctor.name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <Form.Label>Patient Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter email" />
+          <Form.Control type="text" placeholder="Enter Your Name" />
           <Form.Label>Day&Time</Form.Label>
-          <Form.Control type="date" placeholder="Password" />
+          <Form.Control type="date" placeholder="" />
         </Modal.Body>
 
         <Modal.Footer>
           <Button variant="primary">Submit</Button>
           <Button variant="danger">Save changes</Button>
         </Modal.Footer>
-      </Modal.Dialog>
+      </Modal>
     </div>
   );
 }
 
-export default StaticExample;
+export default AddModal;
