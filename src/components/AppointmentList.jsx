@@ -1,9 +1,9 @@
-import appointment from "../../public/img/appointment.jpg"
+import appointment from "./appointment.jpg"
 
 const AppointmentList = () => {
   return (
     <div>
-        <img src={appointment} alt="" />
+        <img src={appointment} alt="" className="appointment"/>
     </div>
   )
 }
