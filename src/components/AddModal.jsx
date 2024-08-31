@@ -10,7 +10,7 @@ function AddModal({show,onHide,doctor}) {
     >
       <Modal show={show} onHide={onHide} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Reservation for{doctor.name}</Modal.Title>
+          <Modal.Title>Reservation for {doctor.name}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
