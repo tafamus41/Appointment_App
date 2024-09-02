@@ -5,7 +5,9 @@ import Container from "react-bootstrap/Container";
 import AppointmentList from "../components/AppointmentList";
 import { appointmentData } from "../helper/data";
 const Home = () => {
-  const [appointments, setAppointments] = useState("")
+  const [appointments, setAppointments] = useState(
+    JSON.parse(localStorage.getItem("list")) || []
+  );
   const handleAdd = (newAppointment) => {
     setAppointments([...appointments, newAppointment]);
     localStorage.setItem(
@@ -13,11 +15,25 @@ const Home = () => {
       JSON.stringify([...appointments, newAppointment])
     );
   };
+  const handleDelete = (id) => {
+    const filteredList = appointments.filter((item) => item.id !== id);
+    setAppointments(filteredList);
+    localStorage.setItem("list", JSON.stringify(filteredList));
+  };
+  const handleDoubleClick = (id) => {
+    const updatedList = appointments.map((app) =>
+      app.id === id ? { ...app, consulted: !app.consulted } : app
+    );
+    setAppointments(updatedList);
+    localStorage.setItem("list", JSON.stringify(updatedList));
+  };
   return (
     <Container>
       <Row>
         <Doctors handleAdd={handleAdd}/>
-        <AppointmentList appointments={appointments}/>
+        <AppointmentList appointments={appointments}
+        handleDelete={handleDelete}
+        handleDoubleClick={handleDoubleClick}/>
       </Row>
     </Container>
   );
