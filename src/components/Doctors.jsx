@@ -41,13 +41,11 @@ const Doctors = () => {
         </Col>
       ))}
 
-      {/* {modal && ( */}
-        <AddModal
-          show={modal}
-          onHide={handleModalClose}
-          doctor={selectedDoctor}
-        />
-      {/* )} */}
+      <AddModal
+        show={modal}
+        onHide={handleModalClose}
+        doctor={selectedDoctor}
+      />
     </>
   );
 };

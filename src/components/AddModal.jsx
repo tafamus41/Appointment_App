@@ -3,29 +3,59 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form"
 
 function AddModal({show,onHide,doctor}) {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newAppointment = {
+      id: new Date().getTime(),
+      patient: name,
+      day: date,
+      consulted: false,
+      doctor: drName,
+    };
+    handleAdd(newAppointment);
+    handleClose();
+  };
   return (
-    <div
-      className="modal show"
-      style={{ display: "block", position: "initial" }}
-    >
+    <>
       <Modal show={show} onHide={onHide} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Reservation for {doctor.name}</Modal.Title>
+          <Modal.Title>Reservation for <span className="text-danger">{doctor.name}</span></Modal.Title>
         </Modal.Header>
-
         <Modal.Body>
-          <Form.Label>Patient Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter Your Name" />
-          <Form.Label>Day&Time</Form.Label>
-          <Form.Control type="date" placeholder="" />
-        </Modal.Body>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>Patient Name:</Form.Label>
+              <Form.Control
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="Enter name"
+              />
+            </Form.Group>
 
-        <Modal.Footer>
-          <Button variant="primary">Submit</Button>
-          <Button variant="danger">Save changes</Button>
-        </Modal.Footer>
+            <Form.Group className="mb-3" controlId="date">
+              <Form.Label>Date:</Form.Label>
+              <Form.Control
+                onChange={(e) => setDate(e.target.value)}
+                type="datetime-local"
+                placeholder="Date"
+              />
+            </Form.Group>
+            <div className="text-center">
+              <Button type="submit" variant="success" className="me-2">
+                Save
+              </Button>
+              <Button type="button" variant="danger" onClick={onHide}>
+                Close
+              </Button>
+            </div>
+          </Form>
+        </Modal.Body>
+        
       </Modal>
-    </div>
+    </>
   );
 }
 
