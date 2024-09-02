@@ -31,7 +31,7 @@ const Doctors = () => {
               title={doctor.name}
               src={doctor.img}
               alt={doctor.name}
-              className=" img-thumbnail rounded-2 "
+              className=" img-thumbnail doctor-image"
             />
             <Card.Body>
               <Card.Title className="text-center">{doctor.name}</Card.Title>
