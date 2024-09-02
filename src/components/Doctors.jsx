@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const Doctors = () => {
   const [modal, setModal] = useState(false);
-  const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [selectedDoctor, setSelectedDoctor] = useState("");
 
   const handleModalOpen = (doctor) => {
     setSelectedDoctor(doctor);
@@ -15,7 +15,7 @@ const Doctors = () => {
 
   const handleModalClose = () => {
     setModal(false);
-    setSelectedDoctor(null);
+    setSelectedDoctor("");
   };
   return (
     <>
@@ -30,7 +30,8 @@ const Doctors = () => {
               variant="top"
               title={doctor.name}
               src={doctor.img}
-              className="rounded-2 "
+              alt={doctor.name}
+              className=" img-thumbnail rounded-2 "
             />
             <Card.Body>
               <Card.Title className="text-center">{doctor.name}</Card.Title>
@@ -40,13 +41,13 @@ const Doctors = () => {
         </Col>
       ))}
 
-      {modal && (
+      {/* {modal && ( */}
         <AddModal
           show={modal}
           onHide={handleModalClose}
           doctor={selectedDoctor}
         />
-      )}
+      {/* )} */}
     </>
   );
 };
