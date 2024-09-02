@@ -1,8 +1,9 @@
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form"
 
-function AddModal({show,onHide,doctor}) {
+function AddModal({show,onHide,doctor,handleAdd}) {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
 
@@ -13,10 +14,10 @@ function AddModal({show,onHide,doctor}) {
       patient: name,
       day: date,
       consulted: false,
-      doctor: drName,
+      doctor: doctor.name,
     };
     handleAdd(newAppointment);
-    handleClose();
+    onHide();
   };
   return (
     <>
