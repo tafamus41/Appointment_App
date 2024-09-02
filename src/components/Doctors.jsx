@@ -19,7 +19,7 @@ const Doctors = () => {
   };
   return (
     <>
-      <h1 className="text-center">TAFAMUS41 HOSPİTAL</h1>
+      <h1 className="text-center display-5 text-primary">TAFAMUS41 HOSPİTAL</h1>
       <h2 className="text-center">Our Doctors</h2>
 
       {doctorData.map((doctor) => (

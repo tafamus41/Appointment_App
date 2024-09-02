@@ -4,6 +4,7 @@ import Doctors from "../components/Doctors";
 import Container from "react-bootstrap/Container";
 import AppointmentList from "../components/AppointmentList";
 import { appointmentData } from "../helper/data";
+
 const Home = () => {
   const [appointments, setAppointments] = useState(
     JSON.parse(localStorage.getItem("list")) || []
@@ -28,7 +29,7 @@ const Home = () => {
     localStorage.setItem("list", JSON.stringify(updatedList));
   };
   return (
-    <Container>
+    <Container className="text-center mt-2">
       <Row>
         <Doctors handleAdd={handleAdd}/>
         <AppointmentList appointments={appointments}
