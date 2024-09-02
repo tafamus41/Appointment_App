@@ -4,7 +4,7 @@ import { doctorData } from "../helper/data";
 import AddModal from "./AddModal";
 import { useState } from "react";
 
-const Doctors = () => {
+const Doctors = ({handleAdd}) => {
   const [modal, setModal] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState("");
 
@@ -45,6 +45,7 @@ const Doctors = () => {
         show={modal}
         onHide={handleModalClose}
         doctor={selectedDoctor}
+        handleAdd={handleAdd}
       />
     </>
   );
