@@ -31,7 +31,7 @@ const Doctors = ({handleAdd}) => {
               title={doctor.name}
               src={doctor.img}
               alt={doctor.name}
-              className=" img-thumbnail doctor-image"
+              className=" img-thumbnail doctor-img"
             />
             <Card.Body>
               <Card.Title className="text-center">{doctor.name}</Card.Title>
