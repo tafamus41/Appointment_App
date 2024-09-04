@@ -23,7 +23,7 @@ const Doctors = ({handleAdd}) => {
       <h2 className="text-center">Our Doctors</h2>
 
       {doctorData.map((doctor) => (
-        <Col key={doctor.id} xs={10} sm={8} md={6} lg={4} xl={3}>
+        <Col key={doctor.id} xs={12} sm={6} md={4} lg={3}>
           <Card className="my-2 mx-4 border-0">
             <Card.Img
               onClick={() => handleModalOpen(doctor)}
